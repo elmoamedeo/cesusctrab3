@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Costumer Records</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}"/>
+</head>
+<body>
+<table class="table table-striped table-bordered table-sm">
+    <thead class="thead-dark">
+    <tr>
+        <th>Costumer ID</th>
+        <th>Costumer Name</th>
+        <th>Costumer Email</th>
+        <th>Costumer Number</th>
+        <th>Actions</th>
+    </tr>
+    </thead>
+    <tbody>
+    {% for costumer in costumers %}
+        <tr>
+            <td>{{ costumer.id }}</td>
+            <td>{{ costumer.name }}</td>
+            <td>{{ costumer.email }}</td>
+            <td>{{ costumer.number }}</td>
+            <td>
+                <a href="/costumer/update/{{ costumer.id }}"><span class="glyphicon glyphicon-pencil">Edit</span></a>
+                <a href="/costumer/delete/{{ costumer.id }}">Delete</a>
+            </td>
+        </tr>
+    {% endfor %}
+    </tbody>
+</table>
+<br>
+<br>
+<center><a href="/costumer/" class="btn btn-primary">Add New Record</a></center>
+</body>
+</html>
