@@ -11,3 +11,5 @@ Lucas Vieira
 
 Para iniciar o projeto, na raiz do mesmo, executar:
 "python manage.py runserver"
+
+''' O projeto pode não estar seguindo as melhores práticas de Django, tendo em vista que se trata mais de uma adaptação para a entrega do trabalho do que um projeto profissional de fato. '''
