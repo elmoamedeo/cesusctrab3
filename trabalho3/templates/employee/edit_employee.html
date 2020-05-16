@@ -30,6 +30,26 @@
                 <input type="text" name="name" id="id_ename" required maxlength="100" value="{{ employee.name }}"/>
             </div>
         </div>
+                <div class="form-group row">
+            <label class="col-sm-2 col-form-label">Employee Address:</label>
+            <div class="col-sm-4">
+                <input type="text" name="address" id="address" required maxlength="100" value="{{ employee.address }}"/>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label class="col-sm-2 col-form-label">Employee Neighborhood:</label>
+            <div class="col-sm-4">
+                <input type="text" name="neighborhood" id="neighborhood" required maxlength="100"
+                       value="{{ employee.neighborhood }}"/>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label class="col-sm-2 col-form-label">Employee Add. Number:</label>
+            <div class="col-sm-4">
+                <input type="number" name="neighborhood" id="neighborhood" required maxlength="5"
+                       value="{{ employee.address_number }}"/>
+            </div>
+        </div>
         <div class="form-group row">
             <label class="col-sm-2 col-form-label">Employee Email:</label>
             <div class="col-sm-4">
@@ -39,7 +59,7 @@
         <div class="form-group row">
             <label class="col-sm-2 col-form-label">Employee Number:</label>
             <div class="col-sm-4">
-                <input type="text" name="number" id="id_econtact" required maxlength="15"
+                <input type="number" name="number" id="id_econtact" required maxlength="15"
                        value="{{ employee.number }}"/>
             </div>
         </div>
