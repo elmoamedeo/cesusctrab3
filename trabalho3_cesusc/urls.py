@@ -5,6 +5,7 @@ from trabalho3.views import employeev as employee
 from trabalho3.views import productv as product
 from trabalho3.views import costumerv as costumer
 from trabalho3.views import billv as bill
+from trabalho3.views import providerv as provider
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -32,4 +33,10 @@ urlpatterns = [
     path('bill/edit/<int:id>', bill.edit),
     path('bill/update/<int:id>', bill.update),
     path('bill/delete/<int:id>', bill.destroy),
+    # Provider paths
+    path('provider/', provider.emp),
+    path('provider/list/providers/', provider.show),
+    path('costumer/edit/<int:id>', provider.edit),
+    path('costumer/update/<int:id>', provider.update),
+    path('costumer/delete/<int:id>', provider.destroy),
 ]
