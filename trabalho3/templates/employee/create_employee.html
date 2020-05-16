@@ -53,6 +53,14 @@
                     {{ form.number }}
                 </div>
             </div>
+            {% for provider in providers %}
+                <div class="form-group row">
+                    <label class="col-sm-2 col-form-label">Employee Provider:</label>
+                    <div class="col-sm-4">
+                        {{ form.provider.name }}
+                    </div>
+                </div>
+            {% endfor %}
             <div class="form-group row">
                 <label class="col-sm-1 col-form-label"></label>
                 <div class="col-sm-4">
