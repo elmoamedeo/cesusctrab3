@@ -10,7 +10,7 @@ Membros envolvidos no grupo:
 - Lucas Vieira
 
 # Instruções:
-- No diretório desejado, com o git instalado (https://git-scm.com/), rodar o comando via cmd: ``` git clone https://github.com/elmoamedeo.git ```
+- No diretório desejado, com o git instalado (https://git-scm.com/), rodar o comando via cmd: ``` git clone https://github.com/elmoamedeo/cesusctrab3.git ```
 - Conferir se o pip está instalado. Caso não esteja com o pip, os comandos a seguir irão instalar/atualizar o pip:
   - (Windows): ``` py -m pip install --upgrade pip ```
   - (Linux/Mac): ``` python3 -m pip install --user --upgrade pip ```
