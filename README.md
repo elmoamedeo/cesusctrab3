@@ -20,7 +20,7 @@ Membros envolvidos no grupo:
 - Ainda na raiz, ativar a venv:
   - (Windows): ``` .\env\Scripts\activate ```
   - (Linux/Max): ``` source env/bin/activate ```
-- Instalar pacotes necessários: pip install ``` -r requirements.txt ```
+- Instalar pacotes necessários: ``` pip install -r requirements.txt ```
 - Após todos os passos anteriores serem completados com êxito, é hora de rodar o servidor com o comando:
   - (Windows): ``` python manage.py runserver ```
   - (Linux/Mac): ``` python3 manage.py runserver ```
