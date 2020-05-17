@@ -14,6 +14,7 @@
         <th>Bill ID</th>
         <th>Bill Price</th>
         <th>Bill Costumer</th>
+        <th>Bill Provider</th>
         <th>Actions</th>
     </tr>
     </thead>
@@ -23,6 +24,7 @@
             <td>{{ bill.id }}</td>
             <td>{{ bill.price }}</td>
             <td>{{ bill.costumer }}</td>
+            <td>{{ bill.provider }}</td>
             <td>
                 <a href="/bill/update/{{ bill.id }}"><span class="glyphicon glyphicon-pencil">Edit</span></a>
                 <a href="/bill/delete/{{ bill.id }}">Delete</a>

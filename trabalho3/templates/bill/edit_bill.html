@@ -21,15 +21,40 @@
                     <div class="form-group row">
                         <label class="col-sm-2 col-form-label">Bill Id:</label>
                         <div class="col-sm-4">
-                            <input type="text" name="id" id="id" required maxlength="20" value="{{ bill.id }}"
+                            <input class="form-control" type="text" name="id" id="id" required maxlength="20"
+                                   value="{{ bill.id }}"
                                    disabled/>
                         </div>
                     </div>
                     <div class="form-group row">
                         <label class="col-sm-2 col-form-label">Bill Price:</label>
                         <div class="col-sm-4">
-                            <input type="text" name="price" id="price" required maxlength="15"
+                            <input class="form-control" type="text" name="price" id="price" required maxlength="15"
                                    value="{{ bill.price }}"/>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-sm-2 col-form-label">Bill Costumer:</label>
+                        <div class="col-sm-4">
+                            <select class="form-control" name="costumer">
+                                {% for costumer in costumers %}
+                                    <option value="{{ costumer.id }}"
+                                            {% if bill.costumer == costumer %}
+                                            selected {% endif %}>{{ costumer }}</option>
+                                {% endfor %}
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-sm-2 col-form-label">Bill Provider:</label>
+                        <div class="col-sm-4">
+                            <select class="form-control" name="provider">
+                                {% for provider in providers %}
+                                    <option value="{{ provider.id }}"
+                                            {% if bill.provider == provider %}
+                                            selected {% endif %}>{{ provider }}</option>
+                                {% endfor %}
+                            </select>
                         </div>
                     </div>
                     <div style="text-align: center;">

@@ -1,6 +1,8 @@
 from django.shortcuts import render, redirect
 from trabalho3.forms.billf import BillForm
 from trabalho3.models.bill import Bill
+from trabalho3.models.costumer import Costumer
+from trabalho3.models.provider import Provider
 
 
 def emp(request):
@@ -29,11 +31,14 @@ def edit(request, id):
 
 def update(request, id):
     bill = Bill.objects.get(id=id)
+    costumers = Costumer.objects.all()
+    providers = Provider.objects.all()
     form = BillForm(request.POST, instance=bill)
     if form.is_valid():
         form.save()
         return redirect('/bill/list/bills/')
-    return render(request, '../templates/bill/edit_bill.html', {'bill': bill})
+    return render(request, '../templates/bill/edit_bill.html',
+                  {'bill': bill, 'costumers': costumers, 'providers': providers})
 
 
 def destroy(request, id):
