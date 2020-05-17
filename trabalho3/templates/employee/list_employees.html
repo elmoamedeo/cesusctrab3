@@ -13,8 +13,12 @@
     <tr>
         <th>Employee ID</th>
         <th>Employee Name</th>
+        <th>Employee Address</th>
+        <th>Employee Neighborhood</th>
+        <th>Employee Address Number</th>
         <th>Employee Email</th>
         <th>Employee Number</th>
+        <th>Employee Provider</th>
         <th>Actions</th>
     </tr>
     </thead>
@@ -23,8 +27,12 @@
         <tr>
             <td>{{ employee.id }}</td>
             <td>{{ employee.name }}</td>
+            <td>{{ employee.address }}</td>
+            <td>{{ employee.neighborhood }}</td>
+            <td>{{ employee.address_number }}</td>
             <td>{{ employee.email }}</td>
             <td>{{ employee.number }}</td>
+            <td>{{ employee.provider }}</td>
             <td>
                 <a href="/employee/update/{{ employee.id }}"><span class="glyphicon glyphicon-pencil">Edit</span></a>
                 <a href="/employee/delete/{{ employee.id }}">Delete</a>

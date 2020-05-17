@@ -1,5 +1,7 @@
 from django.contrib import admin
 from django.urls import path
+from django.views.generic import TemplateView
+
 # Model views
 from trabalho3.views import employeev as employee
 from trabalho3.views import productv as product
@@ -8,6 +10,7 @@ from trabalho3.views import billv as bill
 from trabalho3.views import providerv as provider
 
 urlpatterns = [
+    path('', TemplateView.as_view(template_name='index.html'), name="home"),
     path('admin/', admin.site.urls),
     # Employee paths
     path('employee/', employee.emp),

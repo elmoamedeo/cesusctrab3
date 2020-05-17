@@ -11,3 +11,6 @@ class Costumer(models.Model):
 
     class Meta:
         db_table = "costumer"
+
+    def __str__(self):
+        return self.name
