@@ -9,7 +9,7 @@ Membros envolvidos no grupo:
 - Antônio Jorge Barbosa
 - Lucas Vieira
 
-# Para iniciar o projeto, na raiz do mesmo, seguir as seguintes instruções:
+# Instruções:
 - No diretório desejado, com o git instalado (https://git-scm.com/), rodar o comando via cmd: ``` git clone https://github.com/elmoamedeo.git ```
 - Conferir se o pip está instalado. Caso não esteja com o pip, os comandos a seguir irão instalar/atualizar o pip:
   - (Windows): ``` py -m pip install --upgrade pip ```
