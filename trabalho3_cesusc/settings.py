@@ -78,7 +78,7 @@ WSGI_APPLICATION = 'trabalho3_cesusc.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'djangotest',
+        'NAME': 'djangotest2',
         'USER': 'testuser',
         'PASSWORD': 'testuser',
         'HOST': 'amedeotest.c0dfk1b0ysuy.us-east-2.rds.amazonaws.com',
