@@ -21,7 +21,8 @@
                     <div class="form-group row">
                         <label class="col-sm-2 col-form-label">Product Id:</label>
                         <div class="col-sm-4">
-                            <input class="form-control" type="text" name="id" id="id_eid" required maxlength="20" value="{{ product.id }}"
+                            <input class="form-control" type="text" name="id" id="id_eid" required maxlength="20"
+                                   value="{{ product.id }}"
                                    disabled/>
                         </div>
                     </div>
@@ -35,8 +36,21 @@
                     <div class="form-group row">
                         <label class="col-sm-2 col-form-label">Product Quantity:</label>
                         <div class="col-sm-4">
-                            <input class="form-control" type="text" name="quantity" id="id_econtact" required maxlength="15"
+                            <input class="form-control" type="text" name="quantity" id="id_econtact" required
+                                   maxlength="15"
                                    value="{{ product.quantity }}"/>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-sm-2 col-form-label">Product Provider:</label>
+                        <div class="col-sm-4">
+                            <select class="form-control" name="provider">
+                                {% for provider in providers %}
+                                    <option value="{{ provider.id }}"
+                                            {% if product.provider == provider %}
+                                            selected {% endif %}>{{ provider }}</option>
+                                {% endfor %}
+                            </select>
                         </div>
                     </div>
                     <div style="text-align: center;">

@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
 from trabalho3.forms.productf import ProductForm
 from trabalho3.models.product import Product
+from trabalho3.models.provider import Provider
 
 
 def emp(request):
@@ -29,11 +30,12 @@ def edit(request, id):
 
 def update(request, id):
     product = Product.objects.get(id=id)
+    providers = Provider.objects.all()
     form = ProductForm(request.POST, instance=product)
     if form.is_valid():
         form.save()
         return redirect('/product/list/products')
-    return render(request, '../templates/product/edit_product.html', {'product': product})
+    return render(request, '../templates/product/edit_product.html', {'product': product, 'providers': providers})
 
 
 def destroy(request, id):
