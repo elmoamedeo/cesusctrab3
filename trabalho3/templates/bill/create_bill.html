@@ -11,33 +11,42 @@
 <form method="POST" class="post-form" action="/bill/">
     {% csrf_token %}
     <div class="container">
-        <br>
-        <div class="form-group">
-            <div class="col-sm-4">
-                <h3>Create new Bill</h3>
-            </div>
-            <div class="form-group row">
-                <label class="col-sm-2 col-form-label">Bill Price:</label>
-                <div class="col-sm-4">
-                    {{ form.price }}
-                </div>
-            </div>
-            <div class="form-group row">
-                <label class="col-sm-2 col-form-label">Bill Costumer:</label>
-                <div class="col-sm-4">
-                    {{ form.costumer }}
-                </div>
-            </div>
-            <div class="form-group row">
-                <label class="col-sm-2 col-form-label">Bill Provider:</label>
-                <div class="col-sm-4">
-                    {{ form.provider }}
-                </div>
-            </div>
-            <div class="form-group row">
-                <label class="col-sm-1 col-form-label"></label>
-                <div class="col-sm-4">
-                    <button type="submit" class="btn btn-primary">Submit</button>
+        <div class="row justify-content-center">
+            <div class="form-group col-md-12 align-center">
+                <div class="card">
+                    <div class="card-header">
+                        <div style="text-align: center;"><h3>Create new Bill</h3></div>
+                    </div>
+                    <div class="card-body">
+                        <br>
+                        <div class="row">
+                            <label class="col-sm-2 col-form-label">Bill Price:</label>
+                            <div class="col-sm-4">
+                                {{ form.price }}
+                            </div>
+                        </div>
+                        <br>
+                        <div class="row">
+                            <label class="col-sm-2 col-form-label">Bill Costumer:</label>
+                            <div class="col-sm-4">
+                                {{ form.costumer }}
+                            </div>
+                        </div>
+                        <br>
+                        <div class="row">
+                            <label class="col-sm-2 col-form-label">Bill Provider:</label>
+                            <div class="col-sm-4">
+                                {{ form.provider }}
+                            </div>
+                        </div>
+                        <br>
+                        <div style="text-align: center;">
+                            <button type="submit" class="btn btn-success">Submit</button>
+                            <div style="text-align: center;"><a href="/" class="btn btn-primary">Menu</a></div>
+                            <div style="text-align: center;"><a href="/bill/list/bills/" class="btn btn-primary">Bill List</a></div>
+                        </div>
+                        <br>
+                    </div>
                 </div>
             </div>
         </div>

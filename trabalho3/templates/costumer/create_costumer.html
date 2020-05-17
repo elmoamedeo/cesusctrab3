@@ -11,52 +11,56 @@
 <form method="POST" class="post-form" action="/costumer/">
     {% csrf_token %}
     <div class="container">
-        <br>
-        <div class="form-group">
-            <label class="col-sm-1 col-form-label"></label>
-            <div class="col-sm-4">
-                <h3>Create new Costumer</h3>
-            </div>
-            <div class="form-group row">
-                <label class="col-sm-2 col-form-label">Costumer Name:</label>
-                <div class="col-sm-4">
-                    {{ form.name }}
-                </div>
-            </div>
-            <div class="form-group row">
-                <label class="col-sm-2 col-form-label">Costumer Address:</label>
-                <div class="col-sm-4">
-                    {{ form.address }}
-                </div>
-            </div>
-            <div class="form-group row">
-                <label class="col-sm-2 col-form-label">Costumer Neighborhood:</label>
-                <div class="col-sm-4">
-                    {{ form.neighborhood }}
-                </div>
-            </div>
-            <div class="form-group row">
-                <label class="col-sm-2 col-form-label">Costumer Add. Number:</label>
-                <div class="col-sm-4">
-                    {{ form.address_number }}
-                </div>
-            </div>
-            <div class="form-group row">
-                <label class="col-sm-2 col-form-label">Costumer Email:</label>
-                <div class="col-sm-4">
-                    {{ form.email }}
-                </div>
-            </div>
-            <div class="form-group row">
-                <label class="col-sm-2 col-form-label">Costumer Number:</label>
-                <div class="col-sm-4">
-                    {{ form.number }}
-                </div>
-            </div>
-            <div class="form-group row">
-                <label class="col-sm-1 col-form-label"></label>
-                <div class="col-sm-4">
-                    <button type="submit" class="btn btn-primary">Submit</button>
+        <div class="row justify-content-center">
+            <div class="form-group col-md-12 align-center">
+                <div class="card">
+                    <div class="card-header">
+                        <div style="text-align: center;"><h3>Create new Costumer</h3></div>
+                    </div>
+                    <br>
+                    <div class="row">
+                        <label class="col-sm-2 col-form-label">Costumer Name:</label>
+                        <div class="col-sm-4">
+                            {{ form.name }}
+                        </div>
+                    </div>
+                    <div class="row">
+                        <label class="col-sm-2 col-form-label">Costumer Address:</label>
+                        <div class="col-sm-4">
+                            {{ form.address }}
+                        </div>
+                    </div>
+                    <div class="row">
+                        <label class="col-sm-2 col-form-label">Costumer Neighborhood:</label>
+                        <div class="col-sm-4">
+                            {{ form.neighborhood }}
+                        </div>
+                    </div>
+                    <div class="row">
+                        <label class="col-sm-2 col-form-label">Costumer Add. Number:</label>
+                        <div class="col-sm-4">
+                            {{ form.address_number }}
+                        </div>
+                    </div>
+                    <div class="row">
+                        <label class="col-sm-2 col-form-label">Costumer Email:</label>
+                        <div class="col-sm-4">
+                            {{ form.email }}
+                        </div>
+                    </div>
+                    <div class="row">
+                        <label class="col-sm-2 col-form-label">Costumer Number:</label>
+                        <div class="col-sm-4">
+                            {{ form.number }}
+                        </div>
+                    </div>
+                    <div style="text-align: center;">
+                        <button type="submit" class="btn btn-success">Submit</button>
+                        <div style="text-align: center;"><a href="/" class="btn btn-primary">Menu</a></div>
+                        <div style="text-align: center;"><a href="/costumer/list/costumers/" class="btn btn-primary">Costumer
+                            List</a></div>
+                    </div>
+                    <br>
                 </div>
             </div>
         </div>
