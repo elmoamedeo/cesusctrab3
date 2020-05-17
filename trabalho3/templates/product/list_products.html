@@ -5,6 +5,7 @@
     <title>Product Records</title>
     {% load static %}
     <link rel="stylesheet" href="{% static 'css/style.css' %}"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
 </head>
 <body>
 <table class="table table-striped table-bordered table-sm">
@@ -13,6 +14,7 @@
         <th>Product ID</th>
         <th>Product Name</th>
         <th>Product Quantity</th>
+        <th>Product Provider</th>
         <th>Actions</th>
     </tr>
     </thead>
@@ -22,6 +24,7 @@
             <td>{{ product.id }}</td>
             <td>{{ product.name }}</td>
             <td>{{ product.quantity }}</td>
+            <td>{{ product.provider }}</td>
             <td>
                 <a href="/product/update/{{ product.id }}"><span class="glyphicon glyphicon-pencil">Edit</span></a>
                 <a href="/product/delete/{{ product.id }}">Delete</a>
@@ -32,6 +35,7 @@
 </table>
 <br>
 <br>
-<center><a href="/product/" class="btn btn-primary">Add New Record</a></center>
+<div style="text-align: center;"><a href="/product/" class="btn btn-primary">Add New Record</a></div>
+<div style="text-align: center;"><a href="/" class="btn btn-primary">Menu</a></div>
 </body>
 </html>

@@ -5,6 +5,7 @@
     <title>Bill Records</title>
     {% load static %}
     <link rel="stylesheet" href="{% static 'css/style.css' %}"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
 </head>
 <body>
 <table class="table table-striped table-bordered table-sm">
@@ -12,6 +13,8 @@
     <tr>
         <th>Bill ID</th>
         <th>Bill Price</th>
+        <th>Bill Costumer</th>
+        <th>Bill Provider</th>
         <th>Actions</th>
     </tr>
     </thead>
@@ -20,6 +23,8 @@
         <tr>
             <td>{{ bill.id }}</td>
             <td>{{ bill.price }}</td>
+            <td>{{ bill.costumer }}</td>
+            <td>{{ bill.provider }}</td>
             <td>
                 <a href="/bill/update/{{ bill.id }}"><span class="glyphicon glyphicon-pencil">Edit</span></a>
                 <a href="/bill/delete/{{ bill.id }}">Delete</a>
@@ -30,6 +35,7 @@
 </table>
 <br>
 <br>
-<center><a href="/bill/" class="btn btn-primary">Add New Record</a></center>
+<div style="text-align: center;"><a href="/bill/" class="btn btn-primary">Add New Record</a></div>
+<div style="text-align: center;"><a href="/" class="btn btn-primary">Menu</a></div>
 </body>
 </html>

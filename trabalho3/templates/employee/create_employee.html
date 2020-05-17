@@ -2,45 +2,75 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Index</title>
+    <title>Create Employee</title>
     {% load static %}
     <link rel="stylesheet" href="{% static 'css/style.css' %}"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
 </head>
 <body>
 <form method="POST" class="post-form" action="/employee/">
     {% csrf_token %}
     <div class="container">
-        <br>
-        <div class="form-group row">
-            <label class="col-sm-1 col-form-label"></label>
-            <div class="col-sm-4">
-                <h3>Create new Employee</h3>
-            </div>
-            <div class="form-group row">
-                <label class="col-sm-2 col-form-label">Employee Name:</label>
-                <div class="col-sm-4">
-                    {{ form.name }}
-                </div>
-            </div>
-            <div class="form-group row">
-                <label class="col-sm-2 col-form-label">Employee Email:</label>
-                <div class="col-sm-4">
-                    {{ form.email }}
-                </div>
-            </div>
-            <div class="form-group row">
-                <label class="col-sm-2 col-form-label">Employee Contact:</label>
-                <div class="col-sm-4">
-                    {{ form.number }}
-                </div>
-            </div>
-            <div class="form-group row">
-                <label class="col-sm-1 col-form-label"></label>
-                <div class="col-sm-4">
-                    <button type="submit" class="btn btn-primary">Submit</button>
+        <div class="row justify-content-center">
+            <div class="form-group col-md-12 align-center">
+                <div class="card">
+                    <div class="card-header">
+                        <div style="text-align: center;"><h3>Create new Employee</h3></div>
+                    </div>
+                    <br>
+                    <div class="row">
+                        <label class="col-sm-2 col-form-label">Employee Name:</label>
+                        <div class="col-sm-4">
+                            {{ form.name }}
+                        </div>
+                    </div>
+                    <div class="row">
+                        <label class="col-sm-2 col-form-label">Employee Address:</label>
+                        <div class="col-sm-4">
+                            {{ form.address }}
+                        </div>
+                    </div>
+                    <div class="row">
+                        <label class="col-sm-2 col-form-label">Employee Neighborhood:</label>
+                        <div class="col-sm-4">
+                            {{ form.neighborhood }}
+                        </div>
+                    </div>
+                    <div class="row">
+                        <label class="col-sm-2 col-form-label">Employee Add. Number:</label>
+                        <div class="col-sm-4">
+                            {{ form.address_number }}
+                        </div>
+                    </div>
+                    <div class="row">
+                        <label class="col-sm-2 col-form-label">Employee Email:</label>
+                        <div class="col-sm-4">
+                            {{ form.email }}
+                        </div>
+                    </div>
+                    <div class="row">
+                        <label class="col-sm-2 col-form-label">Employee Contact:</label>
+                        <div class="col-sm-4">
+                            {{ form.number }}
+                        </div>
+                    </div>
+                    <div class="row">
+                        <label class="col-sm-2 col-form-label">Employee Provider:</label>
+                        <div class="col-sm-4">
+                            {{ form.provider }}
+                        </div>
+                    </div>
+                    <div style="text-align: center;">
+                        <button type="submit" class="btn btn-success">Submit</button>
+                        <div style="text-align: center;"><a href="/" class="btn btn-primary">Menu</a></div>
+                        <div style="text-align: center;"><a href="/employee/list/employees/" class="btn btn-primary">Employee
+                            List</a></div>
+                    </div>
+                    <br>
                 </div>
             </div>
         </div>
+    </div>
 </form>
 </body>
 </html>

@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
 from trabalho3.forms.employeef import EmployeeForm
 from trabalho3.models.employee import Employee
+from trabalho3.models.provider import Provider
 
 
 def emp(request):
@@ -29,11 +30,12 @@ def edit(request, id):
 
 def update(request, id):
     employee = Employee.objects.get(id=id)
+    providers = Provider.objects.all()
     form = EmployeeForm(request.POST, instance=employee)
     if form.is_valid():
         form.save()
         return redirect('/employee/list/employees/')
-    return render(request, '../templates/employee/edit_employee.html', {'employee': employee})
+    return render(request, '../templates/employee/edit_employee.html', {'employee': employee, 'providers': providers})
 
 
 def destroy(request, id):
