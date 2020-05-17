@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Create Bill</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
+</head>
+<body>
+<form method="POST" class="post-form" action="/provider_bill/">
+    {% csrf_token %}
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="form-group col-md-12 align-center">
+                <div class="card">
+                    <div class="card-header">
+                        <div style="text-align: center;"><h3>Create new Provider Bill</h3></div>
+                    </div>
+                    <div class="card-body">
+                        <br>
+                        <div class="row">
+                            <label class="col-sm-2 col-form-label">Provider Bill Quantity:</label>
+                            <div class="col-sm-4">
+                                {{ form.quantity }}
+                            </div>
+                        </div>
+                        <br>
+                        <div class="row">
+                            <label class="col-sm-2 col-form-label">Bill Provider:</label>
+                            <div class="col-sm-4">
+                                {{ form.provider }}
+                            </div>
+                        </div>
+                        <br>
+                        <div class="row">
+                            <label class="col-sm-2 col-form-label">Provider Bill Product:</label>
+                            <div class="col-sm-4">
+                                {{ form.product }}
+                            </div>
+                        </div>
+                        <br>
+                        <div style="text-align: center;">
+                            <button type="submit" class="btn btn-success">Submit</button>
+                            <div style="text-align: center;"><a href="/" class="btn btn-primary">Menu</a></div>
+                            <div style="text-align: center;"><a href="/provider_bill/list/provider_bills/"
+                                                                class="btn btn-primary">Provider Bill
+                                List</a></div>
+                        </div>
+                        <br>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+</body>
+</html>

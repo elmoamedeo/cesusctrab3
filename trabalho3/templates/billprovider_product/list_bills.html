@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Bill Records</title>
+    <title>Provider Bill Product Records</title>
     {% load static %}
     <link rel="stylesheet" href="{% static 'css/style.css' %}"/>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
@@ -12,22 +12,23 @@
     <thead class="thead-dark">
     <tr>
         <th>Bill ID</th>
-        <th>Bill Price</th>
-        <th>Bill Costumer</th>
-        <th>Bill Provider</th>
+        <th>Provider Name</th>
+        <th>Product Name</th>
         <th>Actions</th>
     </tr>
     </thead>
     <tbody>
-    {% for bill in bills %}
+    {% for provider_bill_product in provider_bill_products %}
         <tr>
-            <td>{{ bill.id }}</td>
-            <td>{{ bill.price }}</td>
-            <td>{{ bill.costumer }}</td>
-            <td>{{ bill.provider }}</td>
+            <td>{{ provider_bill_product.id }}</td>
+            {% for provider_bill in provider_bills %}
+                {% if provider_bill_product.providerbill == provider_bill %}
+                    <td>{{ provider_bill.provider.name }}</td>
+                {% endif %}
+            {% endfor %}
+            <td>{{ provider_bill_product.product }}</td>
             <td>
-                <a href="/bill/update/{{ bill.id }}"><span class="glyphicon glyphicon-pencil">Edit</span></a>
-                <a href="/bill/delete/{{ bill.id }}">Delete</a>
+                <a href="/provider_bill_product/delete/{{ provider_bill_product.id }}">Delete</a>
             </td>
         </tr>
     {% endfor %}
@@ -35,7 +36,6 @@
 </table>
 <br>
 <br>
-<div style="text-align: center;"><a href="/bill/" class="btn btn-primary">Add New Record</a></div>
 <div style="text-align: center;"><a href="/" class="btn btn-primary">Menu</a></div>
 </body>
 </html>

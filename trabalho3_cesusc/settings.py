@@ -79,8 +79,8 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'djangotest',
-        'USER': 'testuser',
-        'PASSWORD': 'testuser',
+        'USER': 'admin',
+        'PASSWORD': 'test1234',
         'HOST': 'amedeotest.c0dfk1b0ysuy.us-east-2.rds.amazonaws.com',
         'PORT': '3306'
     }

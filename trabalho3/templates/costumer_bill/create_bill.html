@@ -2,27 +2,27 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Create Bill</title>
+    <title>Create Costumer Bill</title>
     {% load static %}
     <link rel="stylesheet" href="{% static 'css/style.css' %}"/>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
 </head>
 <body>
-<form method="POST" class="post-form" action="/bill/">
+<form method="POST" class="post-form" action="/costumer_bill/">
     {% csrf_token %}
     <div class="container">
         <div class="row justify-content-center">
             <div class="form-group col-md-12 align-center">
                 <div class="card">
                     <div class="card-header">
-                        <div style="text-align: center;"><h3>Create new Bill</h3></div>
+                        <div style="text-align: center;"><h3>Create new Costumer Bill</h3></div>
                     </div>
                     <div class="card-body">
                         <br>
                         <div class="row">
-                            <label class="col-sm-2 col-form-label">Bill Price:</label>
+                            <label class="col-sm-2 col-form-label">Costumer Bill Quantity:</label>
                             <div class="col-sm-4">
-                                {{ form.price }}
+                                {{ form.quantity }}
                             </div>
                         </div>
                         <br>
@@ -34,16 +34,18 @@
                         </div>
                         <br>
                         <div class="row">
-                            <label class="col-sm-2 col-form-label">Bill Provider:</label>
+                            <label class="col-sm-2 col-form-label">Costumer Bill Product:</label>
                             <div class="col-sm-4">
-                                {{ form.provider }}
+                                {{ form.product }}
                             </div>
                         </div>
                         <br>
                         <div style="text-align: center;">
                             <button type="submit" class="btn btn-success">Submit</button>
                             <div style="text-align: center;"><a href="/" class="btn btn-primary">Menu</a></div>
-                            <div style="text-align: center;"><a href="/bill/list/bills/" class="btn btn-primary">Bill List</a></div>
+                            <div style="text-align: center;"><a href="/costumer_bill/list/costumer_bills/"
+                                                                class="btn btn-primary">Costumer Bill
+                                List</a></div>
                         </div>
                         <br>
                     </div>
