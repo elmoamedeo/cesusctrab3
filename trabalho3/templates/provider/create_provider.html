@@ -2,54 +2,36 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Create Costumer</title>
+    <title>Create Provider</title>
     {% load static %}
     <link rel="stylesheet" href="{% static 'css/style.css' %}"/>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
 </head>
 <body>
-<form method="POST" class="post-form" action="/costumer/">
+<form method="POST" class="post-form" action="/provider/">
     {% csrf_token %}
     <div class="container">
         <div class="row justify-content-center">
             <div class="form-group col-md-12 align-center">
                 <div class="card">
                     <div class="card-header">
-                        <div style="text-align: center;"><h3>Create new Costumer</h3></div>
+                        <div style="text-align: center;"><h3>Create new Provider</h3></div>
                     </div>
                     <br>
                     <div class="row">
-                        <label class="col-sm-2 col-form-label">Costumer Name:</label>
+                        <label class="col-sm-2 col-form-label">Provider Name:</label>
                         <div class="col-sm-4">
                             {{ form.name }}
                         </div>
                     </div>
                     <div class="row">
-                        <label class="col-sm-2 col-form-label">Costumer Address:</label>
-                        <div class="col-sm-4">
-                            {{ form.address }}
-                        </div>
-                    </div>
-                    <div class="row">
-                        <label class="col-sm-2 col-form-label">Costumer Neighborhood:</label>
-                        <div class="col-sm-4">
-                            {{ form.neighborhood }}
-                        </div>
-                    </div>
-                    <div class="row">
-                        <label class="col-sm-2 col-form-label">Costumer Add. Number:</label>
-                        <div class="col-sm-4">
-                            {{ form.address_number }}
-                        </div>
-                    </div>
-                    <div class="row">
-                        <label class="col-sm-2 col-form-label">Costumer Email:</label>
+                        <label class="col-sm-2 col-form-label">Provider Email:</label>
                         <div class="col-sm-4">
                             {{ form.email }}
                         </div>
                     </div>
                     <div class="row">
-                        <label class="col-sm-2 col-form-label">Costumer Number:</label>
+                        <label class="col-sm-2 col-form-label">Provider Number:</label>
                         <div class="col-sm-4">
                             {{ form.number }}
                         </div>
@@ -57,7 +39,7 @@
                     <div style="text-align: center;">
                         <button type="submit" class="btn btn-success">Submit</button>
                         <div style="text-align: center;"><a href="/" class="btn btn-primary">Menu</a></div>
-                        <div style="text-align: center;"><a href="/costumer/list/costumers/" class="btn btn-primary">Costumer
+                        <div style="text-align: center;"><a href="/provider/list/providers/" class="btn btn-primary">Provider
                             List</a></div>
                     </div>
                     <br>

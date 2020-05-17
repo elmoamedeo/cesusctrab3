@@ -2,13 +2,13 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Edit Product</title>
+    <title>Edit Provider</title>
     {% load static %}
     <link rel="stylesheet" href="{% static 'css/style.css' %}"/>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
 </head>
 <body>
-<form method="POST" class="post-form" action="{{ product.id }}">
+<form method="POST" class="post-form" action="{{ provider.id }}">
     {% csrf_token %}
     <div class="container">
         <div class="row justify-content-center">
@@ -19,44 +19,38 @@
                     </div>
                     <br>
                     <div class="form-group row">
-                        <label class="col-sm-2 col-form-label">Product Id:</label>
+                        <label class="col-sm-2 col-form-label">Provider Id:</label>
                         <div class="col-sm-4">
-                            <input class="form-control" type="text" name="id" id="id_eid" required maxlength="20"
-                                   value="{{ product.id }}"
+                            <input class="form-control" type="text" name="id" id="id_eid" required maxlength="20" value="{{ provider.id }}"
                                    disabled/>
                         </div>
                     </div>
                     <div class="form-group row">
-                        <label class="col-sm-2 col-form-label">Product Name:</label>
+                        <label class="col-sm-2 col-form-label">Provider Name:</label>
                         <div class="col-sm-4">
                             <input class="form-control" type="text" name="name" id="id_ename" required maxlength="100"
-                                   value="{{ product.name }}"/>
+                                   value="{{ provider.name }}"/>
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <label class="col-sm-2 col-form-label">Provider Email:</label>
+                        <div class="col-sm-4">
+                            <input class="form-control" type="text" name="quantity" id="id_econtact" required maxlength="15"
+                                   value="{{ provider.email }}"/>
                         </div>
                     </div>
                     <div class="form-group row">
-                        <label class="col-sm-2 col-form-label">Product Quantity:</label>
+                        <label class="col-sm-2 col-form-label">Provider Number:</label>
                         <div class="col-sm-4">
-                            <input class="form-control" type="text" name="quantity" id="id_econtact" required
-                                   maxlength="15"
-                                   value="{{ product.quantity }}"/>
-                        </div>
-                    </div>
-                    <div class="form-group row">
-                        <label class="col-sm-2 col-form-label">Product Provider:</label>
-                        <div class="col-sm-4">
-                            <select class="form-control" name="provider">
-                                {% for provider in providers %}
-                                    <option value="{{ provider.id }}"
-                                            {% if product.provider == provider %}
-                                            selected {% endif %}>{{ provider }}</option>
-                                {% endfor %}
-                            </select>
+                            <input class="form-control" type="number" name="quantity" id="id_econtact" required maxlength="15"
+                                   value="{{ provider.number }}"/>
                         </div>
                     </div>
                     <div style="text-align: center;">
                         <button type="submit" class="btn btn-success">Update</button>
                         <div style="text-align: center;"><a href="/" class="btn btn-primary">Menu</a></div>
-                        <div style="text-align: center;"><a href="/bill/list/bills/" class="btn btn-primary">Product
+                        <div style="text-align: center;"><a href="/bill/list/bills/" class="btn btn-primary">Provider
                             List</a></div>
                     </div>
                     <br>
