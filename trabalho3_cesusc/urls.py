@@ -39,7 +39,7 @@ urlpatterns = [
     # Provider paths
     path('provider/', provider.emp),
     path('provider/list/providers/', provider.show),
-    path('costumer/edit/<int:id>', provider.edit),
-    path('costumer/update/<int:id>', provider.update),
-    path('costumer/delete/<int:id>', provider.destroy),
+    path('provider/edit/<int:id>', provider.edit),
+    path('provider/update/<int:id>', provider.update),
+    path('provider/delete/<int:id>', provider.destroy),
 ]
