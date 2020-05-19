@@ -6,6 +6,11 @@
     {% load static %}
     <link rel="stylesheet" href="{% static 'css/style.css' %}"/>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/css/bootstrap-select.css"/>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/js/bootstrap-select.min.js"></script>
 </head>
 <body>
 <form method="POST" class="post-form" action="{{ provider_bill.id }}">
@@ -22,7 +27,7 @@
                         <label class="col-sm-2 col-form-label">ID da conta:</label>
                         <div class="col-sm-4">
                             <input class="form-control" type="text" name="id" id="id" required maxlength="20"
-                                   value="{{ bill.id }}"
+                                   value="{{ provider_bill.id }}"
                                    disabled/>
                         </div>
                     </div>
@@ -30,14 +35,38 @@
                     <div class="form-group row">
                         <label class="col-sm-2 col-form-label">Quantidade de produtos:</label>
                         <div class="col-sm-4">
-                            <input class="form-control" type="number" name="quantity" id="quantity" required maxlength="15"
-                                   value="{{ bill.quantity }}"/>
+                            <input class="form-control" type="number" name="quantity" id="quantity" required
+                                   maxlength="15"
+                                   value="{{ provider_bill.quantity }}"/>
                         </div>
                     </div>
-                    <br>
+                    {% if alert_flag %}
+                        <script>alert("A quantidade de produtos não pode ser maior do que a disponível em estoque!")</script>
+                    {% endif %}
+                    <div class="form-group row">
+                        <label class="col-sm-2 col-form-label">Produtos (Quantidade disponível):</label>
+                        <div class="col-sm-4">
+                            <select name="product" class="selectpicker" multiple data-live-search="true">
+                                {% for product in products %}
+                                    <option value="{{ product.id }}"
+                                            {% for provider_bill_product in provider_bill_products %}
+                                                {% if provider_bill_product.providerbill_id == provider_bill.id %}
+                                                    {% if provider_bill_product.product.id == product.id %}
+                                            selected
+                                                    {% endif %}
+                                                {% endif %}
+                                            {% endfor %}>{{ product.name }}
+                                        ({{ product.quantity }})
+                                    </option>
+                                {% endfor %}
+                            </select>
+                        </div>
+                    </div>
+                    <br><br><br>
                     <div style="text-align: center;">
                         <button type="submit" class="btn btn-success">Atualizar</button>
-                        <div style="text-align: center;"><a href="/" class="btn btn-primary">Voltar para o Menu</a></div>
+                        <div style="text-align: center;"><a href="/" class="btn btn-primary">Voltar para o Menu</a>
+                        </div>
                         <div style="text-align: center;"><a href="/provider_bill/list/provider_bills/"
                                                             class="btn btn-primary">Contas a Pagar</a></div>
                     </div>
