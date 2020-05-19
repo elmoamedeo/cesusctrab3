@@ -12,4 +12,4 @@ class Product(models.Model):
         db_table = "product"
 
     def __str__(self):
-        return self.name
+        return str(self.name) + ', Quantity Available: ' + str(self.quantity)
