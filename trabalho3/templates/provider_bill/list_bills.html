@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Provider Bill Records</title>
+    <title>Contas a Pagar</title>
     {% load static %}
     {% load mathfilters %}
     <link rel="stylesheet" href="{% static 'css/style.css' %}"/>
@@ -12,12 +12,12 @@
 <table class="table table-striped table-bordered table-sm">
     <thead class="thead-dark">
     <tr>
-        <th translate="yes">Provider Bill ID</th>
-        <th translate="yes">Provider Bill Quantity</th>
-        <th>Provider Bill Product and Respective Provider</th>
-        <th>Provider Bill Unique Product Value</th>
-        <th>Provider Bill Total Value</th>
-        <th>Actions</th>
+        <th translate="yes">ID do Fornecedor</th>
+        <th translate="yes">Qtde. de Produtos</th>
+        <th>Produto e respectivo Fornecedor</th>
+        <th>Valor unitário do produto</th>
+        <th>Valor total da conta</th>
+        <th>Ações</th>
     </tr>
     </thead>
     <tbody>
@@ -47,9 +47,8 @@
                 {% endfor %}
             </td>
             <td>
-                <a href="/provider_bill/update/{{ provider_bill.id }}"><span
-                        class="glyphicon glyphicon-pencil">Edit</span></a>
-                <a href="/provider_bill/delete/{{ provider_bill.id }}">Delete</a>
+                <a href="/provider_bill/update/{{ provider_bill.id }}" class="btn btn-primary">Atualizar</a>
+                <a href="/provider_bill/delete/{{ provider_bill.id }}" class="btn btn-success">Deletar/Pagar</a>
             </td>
         </tr>
     {% endfor %}

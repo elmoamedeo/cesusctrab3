@@ -12,12 +12,11 @@ def emp(request):
         form = ProviderBillForm(request.POST)
         if form.is_valid():
             try:
-                for product in form.data.product:
+                for product in form['product'].value():
                     # Update product quantity based on how many items were taken in the bill
-                    provider_bill_product = Product.objects.get(id=product.id)
-                    product_form = ProductForm(request.POST, instance=provider_bill_product)
-                    product_form.quantity = provider_bill_product.quantity - form.quantity
-                    product_form.save()
+                    provider_bill_product = Product.objects.get(id=product)
+                    provider_bill_product.quantity = provider_bill_product.quantity - int(form['quantity'].value())
+                    provider_bill_product.save()
 
                 form.save()
                 return redirect('/provider_bill/list/provider_bills/')
@@ -31,15 +30,15 @@ def emp(request):
 def show(request):
     # Get's all provider bills
     provider_bills = ProviderBill.objects.all()
-    print(provider_bills.values())
+    # print(provider_bills.values())
 
     # Get's products trough many-to-many relationship
     provider_bill_products = ProviderBill.product.through.objects.all()
-    print(provider_bill_products.values())
+    # print(provider_bill_products.values())
 
     # Get's all providers
     providers = Provider.objects.all()
-    print(providers.values())
+    # print(providers.values())
 
     return render(request, '../templates/provider_bill/list_bills.html',
                   {'provider_bills': provider_bills, 'provider_bill_products': provider_bill_products,
