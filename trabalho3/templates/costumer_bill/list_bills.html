@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Contas a Receber</title>
+    {% load static %}
+    {% load mathfilters %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+</head>
+<body onload="calculateSum()">
+<div style="text-align: center;"><h3>Contas de Clientes</h3></div>
+<br>
+<div style="text-align: center;">
+    <a href="/costumer_bill/" class="btn btn-primary">Adicionar</a>
+    <a href="/" class="btn btn-warning">Voltar para o Menu</a>
+</div>
+<br><br>
+<table class="table table-striped table-bordered table-sm">
+    <thead class="thead-dark">
+    <tr>
+        <th>ID</th>
+        <th>Qtde. de Produtos</th>
+        <th>Nome do Cliente</th>
+        <th>Produto e respectivo Fornecedor</th>
+        <th>Valor unitário do produto</th>
+        <th>Valor total da conta</th>
+        <th>Ações</th>
+    </tr>
+    </thead>
+    <tbody>
+    {% for costumer_bill in costumer_bills %}
+        <tr>
+            <td>{{ costumer_bill.id }}</td>
+            <td>{{ costumer_bill.quantity }}</td>
+            <td>{{ costumer_bill.costumer.name }}</td>
+            <td>
+                {% for costumer_bill_product in costumer_bill_products %}
+                    {% if costumer_bill_product.costumerbill_id == costumer_bill.id %}
+                        {{ costumer_bill_product.product.name }}, {{ costumer_bill_product.product.provider.name }} <br>
+                    {% endif %}
+                {% endfor %}
+            </td>
+            <td>
+                {% for costumer_bill_product in costumer_bill_products %}
+                    {% if costumer_bill_product.costumerbill_id == costumer_bill.id %}
+                        R$ {{ costumer_bill_product.product.price }} <br>
+                    {% endif %}
+                {% endfor %}
+            </td>
+            <td class="total_value" id="total_value">
+                {% for costumer_bill_product in costumer_bill_products %}
+                    {% if costumer_bill_product.costumerbill_id == costumer_bill.id %}
+                        R$ {{ costumer_bill_product.product.price|mul:costumer_bill.quantity }} <br>
+                    {% endif %}
+                {% endfor %}
+            </td>
+            <td>
+                <a href="/costumer_bill/update/{{ costumer_bill.id }}" class="btn btn-primary">Atualizar</a>
+                <a href="/costumer_bill/delete/{{ costumer_bill.id }}" class="btn btn-success">Apagar (Pagar)</a>
+            </td>
+        </tr>
+    {% endfor %}
+    </tbody>
+</table>
+<br><br><br>
+<script>
+    function calculateSum() {
+        let sum = 0;
+        {% for costumer_bill in costumer_bills %}
+            {% for costumer_bill_product in costumer_bill_products %}
+                {% if costumer_bill_product.costumerbill_id == costumer_bill.id %}
+                    sum += parseFloat({{ costumer_bill_product.product.price|mul:costumer_bill.quantity }});
+                {% endif %}
+            {% endfor %}
+        {% endfor %}
+
+        $('#sumCalc').text(sum);
+    };
+</script>
+<div style="text-align: center;"><h4>O valor total das contas a receber é de: R$ <span id="sumCalc"></span></h4></div>
+<br><br><br>
+<div style="text-align: center;">
+    <a href="/costumer_bill/" class="btn btn-primary">Adicionar</a>
+    <a href="/" class="btn btn-warning">Voltar para o Menu</a>
+</div>
+</body>
+</html>

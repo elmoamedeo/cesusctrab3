@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'mathfilters',
     'trabalho3.apps.Trabalho3Config',
 ]
 
@@ -78,9 +79,9 @@ WSGI_APPLICATION = 'trabalho3_cesusc.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'djangotest2',
-        'USER': 'testuser',
-        'PASSWORD': 'testuser',
+        'NAME': 'djangotest',
+        'USER': 'admin',
+        'PASSWORD': 'test1234',
         'HOST': 'amedeotest.c0dfk1b0ysuy.us-east-2.rds.amazonaws.com',
         'PORT': '3306'
     }

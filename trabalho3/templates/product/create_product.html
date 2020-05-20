@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Create Product</title>
+    <title>Criar Produto</title>
     {% load static %}
     <link rel="stylesheet" href="{% static 'css/style.css' %}"/>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
@@ -22,6 +22,12 @@
                         <label class="col-sm-2 col-form-label">Product Name:</label>
                         <div class="col-sm-4">
                             {{ form.name }}
+                        </div>
+                    </div>
+                    <div class="row">
+                        <label class="col-sm-2 col-form-label">Product Price:</label>
+                        <div class="col-sm-4">
+                            {{ form.price }}
                         </div>
                     </div>
                     <div class="row">

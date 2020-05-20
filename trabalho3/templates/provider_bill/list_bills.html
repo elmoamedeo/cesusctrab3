@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Contas a Pagar</title>
+    {% load static %}
+    {% load mathfilters %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+</head>
+<body onload="calculateSum()">
+<div style="text-align: center;"><h3>Contas de Fornecedores</h3></div>
+<br>
+<div style="text-align: center;">
+    <a href="/provider_bill/" class="btn btn-primary">Adicionar</a>
+    <a href="/" class="btn btn-warning">Voltar para o Menu</a>
+</div>
+<br><br>
+<table class="table table-striped table-bordered table-sm">
+    <thead class="thead-dark">
+    <tr>
+        <th>ID</th>
+        <th>Qtde. de Produtos</th>
+        <th>Produto e respectivo Fornecedor</th>
+        <th>Valor unitário do produto</th>
+        <th>Valor total da conta</th>
+        <th>Ações</th>
+    </tr>
+    </thead>
+    <tbody>
+    {% for provider_bill in provider_bills %}
+        <tr>
+            <td>{{ provider_bill.id }}</td>
+            <td>{{ provider_bill.quantity }}</td>
+            <td>
+                {% for provider_bill_product in provider_bill_products %}
+                    {% if provider_bill_product.providerbill_id == provider_bill.id %}
+                        {{ provider_bill_product.product.name }}, {{ provider_bill_product.product.provider.name }} <br>
+                    {% endif %}
+                {% endfor %}
+            </td>
+            <td>
+                {% for provider_bill_product in provider_bill_products %}
+                    {% if provider_bill_product.providerbill_id == provider_bill.id %}
+                        R$ {{ provider_bill_product.product.price }} <br>
+                    {% endif %}
+                {% endfor %}
+            </td>
+            <td class="total_value" id="total_value">
+                {% for provider_bill_product in provider_bill_products %}
+                    {% if provider_bill_product.providerbill_id == provider_bill.id %}
+                        R$ {{ provider_bill_product.product.price|mul:provider_bill.quantity }} <br>
+                    {% endif %}
+                {% endfor %}
+            </td>
+            <td>
+                <a href="/provider_bill/update/{{ provider_bill.id }}" class="btn btn-primary">Atualizar</a>
+                <a href="/provider_bill/delete/{{ provider_bill.id }}" class="btn btn-success">Apagar (Pagar conta)</a>
+            </td>
+        </tr>
+    {% endfor %}
+    </tbody>
+</table>
+<br><br><br>
+<script>
+    function calculateSum() {
+        let sum = 0;
+        {% for provider_bill in provider_bills %}
+            {% for provider_bill_product in provider_bill_products %}
+                {% if provider_bill_product.providerbill_id == provider_bill.id %}
+                    sum += parseFloat({{ provider_bill_product.product.price|mul:provider_bill.quantity }});
+                {% endif %}
+            {% endfor %}
+        {% endfor %}
+
+        $('#sumCalc').text(sum);
+    };
+</script>
+<div style="text-align: center;"><h4>O valor total das contas a pagar é de: R$ <span id="sumCalc"></span></h4></div>
+<br><br><br>
+<div style="text-align: center;">
+    <a href="/provider_bill/" class="btn btn-primary">Adicionar</a>
+    <a href="/" class="btn btn-warning">Voltar para o Menu</a>
+</div>
+</body>
+</html>

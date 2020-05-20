@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Edit Provider</title>
+    <title>Atualizar Fornecedor</title>
     {% load static %}
     <link rel="stylesheet" href="{% static 'css/style.css' %}"/>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
@@ -15,18 +15,18 @@
             <div class="form-group col-md-12 align-center">
                 <div class="card">
                     <div class="card-header">
-                        <div style="text-align: center;"><h3>Update Details</h3></div>
+                        <div style="text-align: center;"><h3>Atualizar detalhes do Fornecedor</h3></div>
                     </div>
                     <br>
                     <div class="form-group row">
-                        <label class="col-sm-2 col-form-label">Provider Id:</label>
+                        <label class="col-sm-4 col-form-label">ID:</label>
                         <div class="col-sm-4">
                             <input class="form-control" type="text" name="id" id="id_eid" required maxlength="20" value="{{ provider.id }}"
                                    disabled/>
                         </div>
                     </div>
                     <div class="form-group row">
-                        <label class="col-sm-2 col-form-label">Provider Name:</label>
+                        <label class="col-sm-4 col-form-label">Nome do Fornecedor:</label>
                         <div class="col-sm-4">
                             <input class="form-control" type="text" name="name" id="id_ename" required maxlength="100"
                                    value="{{ provider.name }}"/>
@@ -34,24 +34,23 @@
                     </div>
 
                     <div class="form-group row">
-                        <label class="col-sm-2 col-form-label">Provider Email:</label>
+                        <label class="col-sm-4 col-form-label">E-mail do Fornecedor:</label>
                         <div class="col-sm-4">
                             <input class="form-control" type="text" name="quantity" id="id_econtact" required maxlength="15"
                                    value="{{ provider.email }}"/>
                         </div>
                     </div>
                     <div class="form-group row">
-                        <label class="col-sm-2 col-form-label">Provider Number:</label>
+                        <label class="col-sm-4 col-form-label">Número do Fornecedor:</label>
                         <div class="col-sm-4">
                             <input class="form-control" type="number" name="quantity" id="id_econtact" required maxlength="15"
                                    value="{{ provider.number }}"/>
                         </div>
                     </div>
                     <div style="text-align: center;">
-                        <button type="submit" class="btn btn-success">Update</button>
-                        <div style="text-align: center;"><a href="/" class="btn btn-primary">Menu</a></div>
-                        <div style="text-align: center;"><a href="/bill/list/bills/" class="btn btn-primary">Provider
-                            List</a></div>
+                        <button type="submit" class="btn btn-success">Atualizar</button>
+                        <div style="text-align: center;"><a href="/" class="btn btn-primary">Voltar para o Menu</a></div>
+                        <div style="text-align: center;"><a href="/bill/list/bills/" class="btn btn-primary">Consultar Fornecedores</a></div>
                     </div>
                     <br>
                 </div>
