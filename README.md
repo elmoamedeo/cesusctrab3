@@ -28,7 +28,7 @@ Membros envolvidos no grupo:
 -> O servidor com a aplicação ficará disponível em: 127.0.0.1:8000/
 
 # Diagrama de Modelagem de Dados:
-![alt text](https://github.com/elmoamedeo/cesusctrab3/blob/migration_fix/db_diagram.png?raw=true)
+![alt text](https://github.com/elmoamedeo/cesusctrab3/blob/master/db_diagram.png?raw=true)
 
 ```
 O projeto pode não estar seguindo as melhores práticas de Django, tendo em vista que se trata mais de uma adaptação para a entrega do trabalho do que um projeto profissional de fato.
