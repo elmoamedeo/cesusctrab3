@@ -9,6 +9,3 @@ class CostumerBill(models.Model):
 
     class Meta:
         db_table = "costumer_bill"
-
-    def __str__(self):
-        return self.name

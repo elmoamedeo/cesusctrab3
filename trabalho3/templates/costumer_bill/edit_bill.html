@@ -2,10 +2,15 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Edit Bill</title>
+    <title>Atualizar conta de Cliente</title>
     {% load static %}
     <link rel="stylesheet" href="{% static 'css/style.css' %}"/>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/css/bootstrap-select.css"/>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/js/bootstrap-select.min.js"></script>
 </head>
 <body>
 <form method="POST" class="post-form" action="{{ costumer_bill.id }}">
@@ -15,41 +20,78 @@
             <div class="form-group col-md-12 align-center">
                 <div class="card">
                     <div class="card-header">
-                        <div style="text-align: center;"><h3>Update Details</h3></div>
+                        <div style="text-align: center;"><h3>Atualizar detalhes da conta de Cliente</h3></div>
                     </div>
                     <br>
                     <div class="form-group row">
-                        <label class="col-sm-2 col-form-label">ID:</label>
+                        <label class="col-sm-4 col-form-label">ID:</label>
                         <div class="col-sm-4">
                             <input class="form-control" type="text" name="id" id="id" required maxlength="20"
                                    value="{{ costumer_bill.id }}"
                                    disabled/>
                         </div>
                     </div>
+                    <br>
                     <div class="form-group row">
-                        <label class="col-sm-2 col-form-label">Costumer Bill Quantity:</label>
+                        <label class="col-sm-4 col-form-label">Quantidade de produtos:</label>
                         <div class="col-sm-4">
-                            <input class="form-control" type="number" name="quantity" id="quantity" required maxlength="15"
+                            <input class="form-control" type="number" name="quantity" id="quantity" required
+                                   maxlength="15"
                                    value="{{ costumer_bill.quantity }}"/>
                         </div>
                     </div>
+                    {% if alert_flag %}
+                        <script>alert("A quantidade de produtos não pode ser maior do que a disponível em estoque!")</script>
+                    {% endif %}
+                    <br>
                     <div class="form-group row">
-                        <label class="col-sm-2 col-form-label">Bill Costumer:</label>
+                        <label class="col-sm-4 col-form-label">Cliente:</label>
                         <div class="col-sm-4">
-                            <select class="form-control" name="costumer">
+                            <select class="form-control" name="costumer" disabled>
                                 {% for costumer in costumers %}
                                     <option value="{{ costumer.id }}"
-                                            {% if costumer_bill.costumer == costumer %}
+                                            {% if costumer_bill.costumer.id == costumer.id %}
                                             selected {% endif %}>{{ costumer }}</option>
+                                {% endfor %}
+                            </select>
+                            <script>
+                                // Sneaky way of sending the data from the disabled select
+                                // It set's the disabled to false when the user hit's submit
+                                jQuery(function ($) {
+                                    $('form').bind('submit', function () {
+                                        $(this).find(':input').prop('disabled', false);
+                                    });
+                                });
+                            </script>
+                        </div>
+                    </div>
+                    <br>
+                    <div class="form-group row">
+                        <label class="col-sm-4 col-form-label">Produtos (Quantidade disponível):</label>
+                        <div class="col-sm-4">
+                            <select name="product" class="selectpicker" multiple data-live-search="true">
+                                {% for product in products %}
+                                    <option value="{{ product.id }}"
+                                            {% for costumer_bill_product in costumer_bill_products %}
+                                                {% if costumer_bill_product.costumerbill_id == costumer_bill.id %}
+                                                    {% if costumer_bill_product.product.id == product.id %}
+                                            selected
+                                                    {% endif %}
+                                                {% endif %}
+                                            {% endfor %}>{{ product.name }}
+                                        ({{ product.quantity }})
+                                    </option>
                                 {% endfor %}
                             </select>
                         </div>
                     </div>
+                    <br><br><br>
                     <div style="text-align: center;">
-                        <button type="submit" class="btn btn-success">Update</button>
-                        <div style="text-align: center;"><a href="/" class="btn btn-primary">Menu</a></div>
-                        <div style="text-align: center;"><a href="/costumer_bill/list/costumer_bills/" class="btn btn-primary">Bill
-                            List</a></div>
+                        <button type="submit" class="btn btn-success">Atualizar</button>
+                        <div style="text-align: center;"><a href="/" class="btn btn-warning">Voltar para o Menu</a>
+                        </div>
+                        <div style="text-align: center;"><a href="/costumer_bill/list/costumer_bills/"
+                                                            class="btn btn-primary">Contas a Receber</a></div>
                     </div>
                     <br>
                 </div>

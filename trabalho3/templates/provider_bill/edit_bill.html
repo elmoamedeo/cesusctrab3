@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Editar conta de Fornecedor</title>
+    <title>Atualizar conta de Fornecedor</title>
     {% load static %}
     <link rel="stylesheet" href="{% static 'css/style.css' %}"/>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
@@ -24,7 +24,7 @@
                     </div>
                     <br>
                     <div class="form-group row">
-                        <label class="col-sm-2 col-form-label">ID da conta:</label>
+                        <label class="col-sm-4 col-form-label">ID:</label>
                         <div class="col-sm-4">
                             <input class="form-control" type="text" name="id" id="id" required maxlength="20"
                                    value="{{ provider_bill.id }}"
@@ -33,7 +33,7 @@
                     </div>
                     <br>
                     <div class="form-group row">
-                        <label class="col-sm-2 col-form-label">Quantidade de produtos:</label>
+                        <label class="col-sm-4 col-form-label">Quantidade de produtos:</label>
                         <div class="col-sm-4">
                             <input class="form-control" type="number" name="quantity" id="quantity" required
                                    maxlength="15"
@@ -44,7 +44,7 @@
                         <script>alert("A quantidade de produtos não pode ser maior do que a disponível em estoque!")</script>
                     {% endif %}
                     <div class="form-group row">
-                        <label class="col-sm-2 col-form-label">Produtos (Quantidade disponível):</label>
+                        <label class="col-sm-4 col-form-label">Produtos (Quantidade disponível):</label>
                         <div class="col-sm-4">
                             <select name="product" class="selectpicker" multiple data-live-search="true">
                                 {% for product in products %}
@@ -65,8 +65,7 @@
                     <br><br><br>
                     <div style="text-align: center;">
                         <button type="submit" class="btn btn-success">Atualizar</button>
-                        <div style="text-align: center;"><a href="/" class="btn btn-primary">Voltar para o Menu</a>
-                        </div>
+                        <div style="text-align: center;"><a href="/" class="btn btn-primary">Voltar para o Menu</a></div>
                         <div style="text-align: center;"><a href="/provider_bill/list/provider_bills/"
                                                             class="btn btn-primary">Contas a Pagar</a></div>
                     </div>
