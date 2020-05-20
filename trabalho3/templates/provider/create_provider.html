@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Create Provider</title>
+    <title>Criar Fornecedor</title>
     {% load static %}
     <link rel="stylesheet" href="{% static 'css/style.css' %}"/>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
@@ -15,32 +15,33 @@
             <div class="form-group col-md-12 align-center">
                 <div class="card">
                     <div class="card-header">
-                        <div style="text-align: center;"><h3>Create new Provider</h3></div>
+                        <div style="text-align: center;"><h3>Criar novo Fornecedor</h3></div>
                     </div>
                     <br>
                     <div class="row">
-                        <label class="col-sm-2 col-form-label">Provider Name:</label>
+                        <label class="col-sm-4 col-form-label">Nome do Fornecedor:</label>
                         <div class="col-sm-4">
                             {{ form.name }}
                         </div>
                     </div>
                     <div class="row">
-                        <label class="col-sm-2 col-form-label">Provider Email:</label>
+                        <label class="col-sm-4 col-form-label">E-mail do Fornecedor:</label>
                         <div class="col-sm-4">
                             {{ form.email }}
                         </div>
                     </div>
                     <div class="row">
-                        <label class="col-sm-2 col-form-label">Provider Number:</label>
+                        <label class="col-sm-4 col-form-label">Número do Fornecedor:</label>
                         <div class="col-sm-4">
                             {{ form.number }}
                         </div>
                     </div>
                     <div style="text-align: center;">
-                        <button type="submit" class="btn btn-success">Submit</button>
-                        <div style="text-align: center;"><a href="/" class="btn btn-primary">Menu</a></div>
-                        <div style="text-align: center;"><a href="/provider/list/providers/" class="btn btn-primary">Provider
-                            List</a></div>
+                        <button type="submit" class="btn btn-success">Criar</button>
+                        <div style="text-align: center;"><a href="/" class="btn btn-primary">Voltar para o Menu</a>
+                        </div>
+                        <div style="text-align: center;"><a href="/provider/list/providers/" class="btn btn-primary">Consultar
+                            Fornecedores</a></div>
                     </div>
                     <br>
                 </div>

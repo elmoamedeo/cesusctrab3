@@ -2,17 +2,24 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Bill Records</title>
+    <title>Contas a Receber</title>
     {% load static %}
     <link rel="stylesheet" href="{% static 'css/style.css' %}"/>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
 </head>
 <body>
+<div style="text-align: center;"><h3>Contas de Clientes</h3></div>
+<br>
+<div style="text-align: center;">
+    <a href="/costumer_bill/" class="btn btn-primary">Adicionar</a>
+    <a href="/" class="btn btn-warning">Voltar para o Menu</a>
+</div>
+<br><br>
 <table class="table table-striped table-bordered table-sm">
     <thead class="thead-dark">
     <tr>
-        <th>Costumer Bill ID</th>
-        <th>Costumer Bill Quantity</th>
+        <th>ID</th>
+        <th>Quantidade</th>
         <th>Costumer Bill Total Value</th>
         <th>Costumer Bill Costumer</th>
         <th>Actions</th>
@@ -25,8 +32,8 @@
             <td>{{ costumer_bill.quantity }}</td>
             <td>{{ costumer_bill.costumer }}</td>
             <td>
-                <a href="/costumer_bill/update/{{ costumer_bill.id }}"><span class="glyphicon glyphicon-pencil">Edit</span></a>
-                <a href="/costumer_bill/delete/{{ costumer_bill.id }}">Delete</a>
+                <a href="/costumer_bill/update/{{ costumer_bill.id }}" class="btn btn-primary">Atualizar</a>
+                <a href="/costumer_bill/delete/{{ costumer_bill.id }}" class="btn btn-danger">Apagar</a>
             </td>
         </tr>
     {% endfor %}
@@ -34,7 +41,9 @@
 </table>
 <br>
 <br>
-<div style="text-align: center;"><a href="/costumer_bill/" class="btn btn-primary">Add New Record</a></div>
-<div style="text-align: center;"><a href="/" class="btn btn-primary">Menu</a></div>
+<div style="text-align: center;">
+    <a href="/costumer_bill/" class="btn btn-primary">Adicionar</a>
+    <a href="/" class="btn btn-warning">Voltar para o Menu</a>
+</div>
 </body>
 </html>
