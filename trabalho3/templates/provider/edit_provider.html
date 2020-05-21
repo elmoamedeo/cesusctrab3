@@ -21,12 +21,13 @@
                     <div class="form-group row">
                         <label class="col-sm-4 col-form-label">ID:</label>
                         <div class="col-sm-4">
-                            <input class="form-control" type="text" name="id" id="id_eid" required maxlength="20" value="{{ provider.id }}"
+                            <input class="form-control" type="text" name="id" id="id" required maxlength="20"
+                                   value="{{ provider.id }}"
                                    disabled/>
                         </div>
                     </div>
                     <div class="form-group row">
-                        <label class="col-sm-4 col-form-label">Nome do Fornecedor:</label>
+                        <label class="col-sm-4 col-form-label">Nome:</label>
                         <div class="col-sm-4">
                             <input class="form-control" type="text" name="name" id="name" required maxlength="100"
                                    value="{{ provider.name }}"/>
@@ -34,14 +35,14 @@
                     </div>
 
                     <div class="form-group row">
-                        <label class="col-sm-4 col-form-label">E-mail do Fornecedor:</label>
+                        <label class="col-sm-4 col-form-label">E-mail:</label>
                         <div class="col-sm-4">
-                            <input class="form-control" type="text" name="email" id="email" required maxlength="15"
+                            <input class="form-control" type="text" name="email" id="email" required maxlength="254"
                                    value="{{ provider.email }}"/>
                         </div>
                     </div>
                     <div class="form-group row">
-                        <label class="col-sm-4 col-form-label">Número do Fornecedor:</label>
+                        <label class="col-sm-4 col-form-label">Número:</label>
                         <div class="col-sm-4">
                             <input class="form-control" type="number" name="number" id="number" required maxlength="15"
                                    value="{{ provider.number }}"/>
@@ -49,8 +50,10 @@
                     </div>
                     <div style="text-align: center;">
                         <button type="submit" class="btn btn-success">Atualizar</button>
-                        <div style="text-align: center;"><a href="/" class="btn btn-primary">Voltar para o Menu</a></div>
-                        <div style="text-align: center;"><a href="/bill/list/bills/" class="btn btn-primary">Consultar Fornecedores</a></div>
+                        <div style="text-align: center;"><a href="/" class="btn btn-primary">Voltar para o Menu</a>
+                        </div>
+                        <div style="text-align: center;"><a href="/bill/list/bills/" class="btn btn-primary">Consultar
+                            Fornecedores</a></div>
                     </div>
                     <br>
                 </div>
