@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Criar Empregado</title>
+    <title>Criar Funcionário</title>
     {% load static %}
     <link rel="stylesheet" href="{% static 'css/style.css' %}"/>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
@@ -15,56 +15,64 @@
             <div class="form-group col-md-12 align-center">
                 <div class="card">
                     <div class="card-header">
-                        <div style="text-align: center;"><h3>Create new Employee</h3></div>
+                        <div style="text-align: center;"><h3>Criar novo Funcionário</h3></div>
                     </div>
                     <br>
                     <div class="row">
-                        <label class="col-sm-2 col-form-label">Employee Name:</label>
+                        <label class="col-sm-4 col-form-label">Nome:</label>
                         <div class="col-sm-4">
                             {{ form.name }}
                         </div>
                     </div>
                     <div class="row">
-                        <label class="col-sm-2 col-form-label">Employee Address:</label>
+                        <label class="col-sm-4 col-form-label">Endereço:</label>
                         <div class="col-sm-4">
                             {{ form.address }}
                         </div>
                     </div>
                     <div class="row">
-                        <label class="col-sm-2 col-form-label">Employee Neighborhood:</label>
+                        <label class="col-sm-4 col-form-label">Bairro:</label>
                         <div class="col-sm-4">
                             {{ form.neighborhood }}
                         </div>
                     </div>
                     <div class="row">
-                        <label class="col-sm-2 col-form-label">Employee Add. Number:</label>
+                        <label class="col-sm-4 col-form-label">Número da Casa/Apto:</label>
                         <div class="col-sm-4">
                             {{ form.address_number }}
                         </div>
                     </div>
                     <div class="row">
-                        <label class="col-sm-2 col-form-label">Employee Email:</label>
+                        <label class="col-sm-4 col-form-label">E-mail:</label>
                         <div class="col-sm-4">
                             {{ form.email }}
                         </div>
                     </div>
                     <div class="row">
-                        <label class="col-sm-2 col-form-label">Employee Contact:</label>
+                        <label class="col-sm-4 col-form-label">Número:</label>
                         <div class="col-sm-4">
                             {{ form.number }}
                         </div>
                     </div>
                     <div class="row">
-                        <label class="col-sm-2 col-form-label">Employee Provider:</label>
+                        <label class="col-sm-4 col-form-label">Salário:</label>
+                        <div class="col-sm-4">
+                            {{ form.salary }}
+                        </div>
+                    </div>
+                    <div class="row">
+                        <label class="col-sm-4 col-form-label">Fornecedor:</label>
                         <div class="col-sm-4">
                             {{ form.provider }}
                         </div>
                     </div>
+                    <br><br><br>
                     <div style="text-align: center;">
-                        <button type="submit" class="btn btn-success">Submit</button>
-                        <div style="text-align: center;"><a href="/" class="btn btn-primary">Menu</a></div>
-                        <div style="text-align: center;"><a href="/employee/list/employees/" class="btn btn-primary">Employee
-                            List</a></div>
+                        <button type="submit" class="btn btn-success">Criar</button>
+                        <div style="text-align: center;"><a href="/" class="btn btn-warning">Voltar para o Menu</a>
+                        </div>
+                        <div style="text-align: center;"><a href="/employee/list/employees/" class="btn btn-primary">Consultar
+                            Funcionários</a></div>
                     </div>
                     <br>
                 </div>

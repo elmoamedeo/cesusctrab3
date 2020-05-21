@@ -21,7 +21,8 @@
                     <div class="form-group row">
                         <label class="col-sm-2 col-form-label">ID:</label>
                         <div class="col-sm-4">
-                            <input class="form-control" type="text" name="eid" id="id_eid" required maxlength="20" value="{{ costumer.id }}"
+                            <input class="form-control" type="text" name="eid" id="id_eid" required maxlength="20"
+                                   value="{{ costumer.id }}"
                                    disabled/>
                         </div>
                     </div>
@@ -42,14 +43,16 @@
                     <div class="form-group row">
                         <label class="col-sm-2 col-form-label">Costumer Neighborhood:</label>
                         <div class="col-sm-4">
-                            <input class="form-control" type="text" name="neighborhood" id="neighborhood" required maxlength="100"
+                            <input class="form-control" type="text" name="neighborhood" id="neighborhood" required
+                                   maxlength="100"
                                    value="{{ costumer.neighborhood }}"/>
                         </div>
                     </div>
                     <div class="form-group row">
                         <label class="col-sm-2 col-form-label">Costumer Add. Number:</label>
                         <div class="col-sm-4">
-                            <input class="form-control" type="number" name="neighborhood" id="neighborhood" required maxlength="5"
+                            <input class="form-control" type="number" name="address_number" id="address_number" required
+                                   maxlength="5"
                                    value="{{ costumer.address_number }}"/>
                         </div>
                     </div>
@@ -68,10 +71,11 @@
                         </div>
                     </div>
                     <div style="text-align: center;">
-                        <button type="submit" class="btn btn-success">Update</button>
-                        <div style="text-align: center;"><a href="/" class="btn btn-primary">Menu</a></div>
-                        <div style="text-align: center;"><a href="/bill/list/bills/" class="btn btn-primary">Costumer
-                            List</a></div>
+                        <button type="submit" class="btn btn-success">Atualizar</button>
+                        <div style="text-align: center;"><a href="/" class="btn btn-primary">Voltar para o Menu</a>
+                        </div>
+                        <div style="text-align: center;"><a href="/bill/list/bills/" class="btn btn-primary">Consultar
+                            Clientes</a></div>
                     </div>
                     <br>
                 </div>

@@ -25,6 +25,7 @@
         <th>Nº da Casa/Apto</th>
         <th>E-mail</th>
         <th>Número</th>
+        <th>Salário</th>
         <th>Fornecedor</th>
         <th>Ações</th>
     </tr>
@@ -39,6 +40,7 @@
             <td>{{ employee.address_number }}</td>
             <td>{{ employee.email }}</td>
             <td>{{ employee.number }}</td>
+            <td>R$ {{ employee.salary }}</td>
             <td>{{ employee.provider }}</td>
             <td>
                 <a href="/employee/update/{{ employee.id }}" class="btn btn-primary">Atualizar</a>
