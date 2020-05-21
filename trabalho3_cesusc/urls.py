@@ -47,10 +47,8 @@ urlpatterns = [
     path('provider_bill/delete/<int:id>', provider_bill.destroy),
     # Costumer Bill Product paths
     path('costumer_bill_product/list/costumer_bill_products/', costumer_bill_product.show),
-    path('costumer_bill_product/delete/<int:id>', costumer_bill_product.destroy),
     # Provider Bill Product paths
     path('provider_bill_product/list/provider_bill_products/', provider_bill_product.show),
-    path('provider_bill_product/delete/<int:id>', provider_bill_product.destroy),
     # Provider paths
     path('provider/', provider.emp),
     path('provider/list/providers/', provider.show),

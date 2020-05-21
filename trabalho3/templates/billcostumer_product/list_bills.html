@@ -8,13 +8,15 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
 </head>
 <body>
+<br>
+<center><h3>Relação conta Cliente com Produto</h3></center>
+<br><br>
 <table class="table table-striped table-bordered table-sm">
     <thead class="thead-dark">
     <tr>
         <th>ID</th>
         <th>Nome do Cliente</th>
         <th>Nome do Produto</th>
-        <th>Ações</th>
     </tr>
     </thead>
     <tbody>
@@ -27,9 +29,6 @@
                 {% endif %}
             {% endfor %}
             <td>{{ costumer_bill_product.product }}</td>
-            <td>
-                <a href="/costumer_bill_product/delete/{{ costumer_bill_product.id }}" class="btn btn-primary">Apagar</a>
-            </td>
         </tr>
     {% endfor %}
     </tbody>
